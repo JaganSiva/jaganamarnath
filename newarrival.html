@@ -1,4 +1,4 @@
-<html>
+<!-- <html>
 <!--   <h4>Womens Collection</h4>  -->
   <head>
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -104,5 +104,535 @@ body {
             New Collection 
         </marquee>
 
+</body>
+</html>
+ -->
+
+
+ <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>New Collection - Premium Textiles</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            color: #333;
+        }
+
+        .header {
+            text-align: center;
+            padding: 40px 20px;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            margin-bottom: 30px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .header h1 {
+            font-size: 3rem;
+            color: white;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+            margin-bottom: 10px;
+            animation: fadeInDown 1s ease;
+        }
+
+        .header p {
+            font-size: 1.2rem;
+            color: rgba(255, 255, 255, 0.9);
+            animation: fadeInUp 1s ease 0.3s both;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+            margin-bottom: 40px;
+        }
+
+        .card {
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            position: relative;
+            animation: fadeInUp 0.6s ease forwards;
+            opacity: 0;
+            transform: translateY(30px);
+        }
+
+        .card:nth-child(1) { animation-delay: 0.1s; }
+        .card:nth-child(2) { animation-delay: 0.2s; }
+        .card:nth-child(3) { animation-delay: 0.3s; }
+        .card:nth-child(4) { animation-delay: 0.4s; }
+        .card:nth-child(5) { animation-delay: 0.5s; }
+        .card:nth-child(6) { animation-delay: 0.6s; }
+        .card:nth-child(7) { animation-delay: 0.7s; }
+        .card:nth-child(8) { animation-delay: 0.8s; }
+        .card:nth-child(9) { animation-delay: 0.9s; }
+        .card:nth-child(10) { animation-delay: 1.0s; }
+        .card:nth-child(11) { animation-delay: 1.1s; }
+        .card:nth-child(12) { animation-delay: 1.2s; }
+
+        .card:hover {
+            transform: translateY(-15px) scale(1.02);
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.2);
+        }
+
+        .card-image {
+            position: relative;
+            height: 250px;
+            background: linear-gradient(45deg, #ff9a9e, #fecfef);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 4rem;
+            overflow: hidden;
+        }
+
+        .card-image::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grain" width="100" height="100" patternUnits="userSpaceOnUse"><circle cx="25" cy="25" r="1" fill="rgba(255,255,255,0.1)"/><circle cx="75" cy="75" r="1" fill="rgba(255,255,255,0.1)"/><circle cx="50" cy="10" r="0.5" fill="rgba(255,255,255,0.05)"/></pattern></defs><rect width="100" height="100" fill="url(%23grain)"/></svg>');
+            opacity: 0.3;
+        }
+
+        .silk-saree { background: linear-gradient(45deg, #ff6b6b, #feca57); }
+        .cotton-dress { background: linear-gradient(45deg, #48cae4, #023e8a); }
+        .designer-kurta { background: linear-gradient(45deg, #8e44ad, #3498db); }
+        .printed-shirt { background: linear-gradient(45deg, #e67e22, #f39c12); }
+        .formal-suit { background: linear-gradient(45deg, #2c3e50, #34495e); }
+        .casual-jeans { background: linear-gradient(45deg, #3742fa, #2f3542); }
+        .ethnic-wear { background: linear-gradient(45deg, #ff6348, #ff4757); }
+        .party-dress { background: linear-gradient(45deg, #a55eea, #26de81); }
+        .traditional-wear { background: linear-gradient(45deg, #fd79a8, #fdcb6e); }
+        .western-top { background: linear-gradient(45deg, #00b894, #00cec9); }
+        .blazer { background: linear-gradient(45deg, #6c5ce7, #a29bfe); }
+        .palazzo { background: linear-gradient(45deg, #fab1a0, #e17055); }
+
+        .offer-badge {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background: linear-gradient(45deg, #ff4757, #ff3838);
+            color: white;
+            padding: 8px 12px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: bold;
+            animation: pulse 2s infinite;
+            box-shadow: 0 4px 15px rgba(255, 71, 87, 0.4);
+        }
+
+        .card-content {
+            padding: 25px;
+            text-align: center;
+        }
+
+        .card-title {
+            font-size: 1.4rem;
+            font-weight: 600;
+            margin-bottom: 8px;
+            color: #2c3e50;
+        }
+
+        .card-description {
+            color: #7f8c8d;
+            margin-bottom: 15px;
+            font-size: 0.9rem;
+            line-height: 1.4;
+        }
+
+        .price-section {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+
+        .current-price {
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: #27ae60;
+        }
+
+        .original-price {
+            font-size: 1.1rem;
+            color: #95a5a6;
+            text-decoration: line-through;
+        }
+
+        .add-to-cart {
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            color: white;
+            border: none;
+            padding: 12px 30px;
+            border-radius: 25px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            width: 100%;
+            font-size: 1rem;
+        }
+
+        .add-to-cart:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(102, 126, 234, 0.4);
+        }
+
+        .marquee-container {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            padding: 20px 0;
+            margin-top: 40px;
+            border-top: 1px solid rgba(255, 255, 255, 0.2);
+            overflow: hidden;
+            position: relative;
+        }
+
+        .marquee-text {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: white;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+            white-space: nowrap;
+            animation: scroll 15s linear infinite;
+        }
+
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes pulse {
+            0%, 100% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.05);
+            }
+        }
+
+        @keyframes scroll {
+            0% {
+                transform: translateX(100%);
+            }
+            100% {
+                transform: translateX(-100%);
+            }
+        }
+
+        @media screen and (max-width: 768px) {
+            .header h1 {
+                font-size: 2rem;
+            }
+            
+            .products-grid {
+                grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+                gap: 20px;
+            }
+            
+            .card-image {
+                height: 200px;
+                font-size: 3rem;
+            }
+        }
+
+        .textile-icon {
+            color: rgba(255, 255, 255, 0.8);
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>✨ New Collection ✨</h1>
+        <p>Discover Premium Textiles with Exclusive Offers</p>
+    </div>
+
+    <div class="container">
+        <div class="products-grid">
+            <!-- Card 1 -->
+            <div class="card">
+                <div class="card-image silk-saree">
+                    <span class="textile-icon">🥻</span>
+                    <div class="offer-badge">30% OFF</div>
+                </div>
+                <div class="card-content">
+                    <h3 class="card-title">Silk Saree</h3>
+                    <p class="card-description">Premium quality silk saree with intricate designs</p>
+                    <div class="price-section">
+                        <span class="current-price">₹450</span>
+                        <span class="original-price">₹650</span>
+                    </div>
+                    <button class="add-to-cart">Add to Cart</button>
+                </div>
+            </div>
+
+            <!-- Card 2 -->
+            <div class="card">
+                <div class="card-image cotton-dress">
+                    <span class="textile-icon">👗</span>
+                    <div class="offer-badge">25% OFF</div>
+                </div>
+                <div class="card-content">
+                    <h3 class="card-title">Cotton Dress</h3>
+                    <p class="card-description">Comfortable cotton dress perfect for daily wear</p>
+                    <div class="price-section">
+                        <span class="current-price">₹320</span>
+                        <span class="original-price">₹425</span>
+                    </div>
+                    <button class="add-to-cart">Add to Cart</button>
+                </div>
+            </div>
+
+            <!-- Card 3 -->
+            <div class="card">
+                <div class="card-image designer-kurta">
+                    <span class="textile-icon">👔</span>
+                    <div class="offer-badge">40% OFF</div>
+                </div>
+                <div class="card-content">
+                    <h3 class="card-title">Designer Kurta</h3>
+                    <p class="card-description">Elegant designer kurta with modern patterns</p>
+                    <div class="price-section">
+                        <span class="current-price">₹680</span>
+                        <span class="original-price">₹1,150</span>
+                    </div>
+                    <button class="add-to-cart">Add to Cart</button>
+                </div>
+            </div>
+
+            <!-- Card 4 -->
+            <div class="card">
+                <div class="card-image printed-shirt">
+                    <span class="textile-icon">👕</span>
+                    <div class="offer-badge">20% OFF</div>
+                </div>
+                <div class="card-content">
+                    <h3 class="card-title">Printed Shirt</h3>
+                    <p class="card-description">Trendy printed shirt for casual occasions</p>
+                    <div class="price-section">
+                        <span class="current-price">₹280</span>
+                        <span class="original-price">₹350</span>
+                    </div>
+                    <button class="add-to-cart">Add to Cart</button>
+                </div>
+            </div>
+
+            <!-- Card 5 -->
+            <div class="card">
+                <div class="card-image formal-suit">
+                    <span class="textile-icon">🤵</span>
+                    <div class="offer-badge">35% OFF</div>
+                </div>
+                <div class="card-content">
+                    <h3 class="card-title">Formal Suit</h3>
+                    <p class="card-description">Premium formal suit for business meetings</p>
+                    <div class="price-section">
+                        <span class="current-price">₹1,950</span>
+                        <span class="original-price">₹3,000</span>
+                    </div>
+                    <button class="add-to-cart">Add to Cart</button>
+                </div>
+            </div>
+
+            <!-- Card 6 -->
+            <div class="card">
+                <div class="card-image casual-jeans">
+                    <span class="textile-icon">👖</span>
+                    <div class="offer-badge">15% OFF</div>
+                </div>
+                <div class="card-content">
+                    <h3 class="card-title">Casual Jeans</h3>
+                    <p class="card-description">Comfortable denim jeans for everyday style</p>
+                    <div class="price-section">
+                        <span class="current-price">₹850</span>
+                        <span class="original-price">₹1,000</span>
+                    </div>
+                    <button class="add-to-cart">Add to Cart</button>
+                </div>
+            </div>
+
+            <!-- Card 7 -->
+            <div class="card">
+                <div class="card-image ethnic-wear">
+                    <span class="textile-icon">🧥</span>
+                    <div class="offer-badge">45% OFF</div>
+                </div>
+                <div class="card-content">
+                    <h3 class="card-title">Ethnic Wear</h3>
+                    <p class="card-description">Traditional ethnic wear with modern touch</p>
+                    <div class="price-section">
+                        <span class="current-price">₹720</span>
+                        <span class="original-price">₹1,300</span>
+                    </div>
+                    <button class="add-to-cart">Add to Cart</button>
+                </div>
+            </div>
+
+            <!-- Card 8 -->
+            <div class="card">
+                <div class="card-image party-dress">
+                    <span class="textile-icon">💃</span>
+                    <div class="offer-badge">50% OFF</div>
+                </div>
+                <div class="card-content">
+                    <h3 class="card-title">Party Dress</h3>
+                    <p class="card-description">Glamorous party dress for special occasions</p>
+                    <div class="price-section">
+                        <span class="current-price">₹1,200</span>
+                        <span class="original-price">₹2,400</span>
+                    </div>
+                    <button class="add-to-cart">Add to Cart</button>
+                </div>
+            </div>
+
+            <!-- Card 9 -->
+            <div class="card">
+                <div class="card-image traditional-wear">
+                    <span class="textile-icon">👘</span>
+                    <div class="offer-badge">30% OFF</div>
+                </div>
+                <div class="card-content">
+                    <h3 class="card-title">Traditional Wear</h3>
+                    <p class="card-description">Authentic traditional clothing with rich heritage</p>
+                    <div class="price-section">
+                        <span class="current-price">₹980</span>
+                        <span class="original-price">₹1,400</span>
+                    </div>
+                    <button class="add-to-cart">Add to Cart</button>
+                </div>
+            </div>
+
+            <!-- Card 10 -->
+            <div class="card">
+                <div class="card-image western-top">
+                    <span class="textile-icon">👚</span>
+                    <div class="offer-badge">25% OFF</div>
+                </div>
+                <div class="card-content">
+                    <h3 class="card-title">Western Top</h3>
+                    <p class="card-description">Stylish western top with contemporary design</p>
+                    <div class="price-section">
+                        <span class="current-price">₹380</span>
+                        <span class="original-price">₹505</span>
+                    </div>
+                    <button class="add-to-cart">Add to Cart</button>
+                </div>
+            </div>
+
+            <!-- Card 11 -->
+            <div class="card">
+                <div class="card-image blazer">
+                    <span class="textile-icon">🧥</span>
+                    <div class="offer-badge">35% OFF</div>
+                </div>
+                <div class="card-content">
+                    <h3 class="card-title">Blazer</h3>
+                    <p class="card-description">Professional blazer for office and formal events</p>
+                    <div class="price-section">
+                        <span class="current-price">₹1,450</span>
+                        <span class="original-price">₹2,230</span>
+                    </div>
+                    <button class="add-to-cart">Add to Cart</button>
+                </div>
+            </div>
+
+            <!-- Card 12 -->
+            <div class="card">
+                <div class="card-image palazzo">
+                    <span class="textile-icon">👗</span>
+                    <div class="offer-badge">40% OFF</div>
+                </div>
+                <div class="card-content">
+                    <h3 class="card-title">Palazzo Set</h3>
+                    <p class="card-description">Comfortable palazzo set perfect for summer</p>
+                    <div class="price-section">
+                        <span class="current-price">₹540</span>
+                        <span class="original-price">₹900</span>
+                    </div>
+                    <button class="add-to-cart">Add to Cart</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="marquee-container">
+        <div class="marquee-text">
+            🎉 MEGA SALE: Up to 50% OFF on New Collection | Free Shipping on Orders Above ₹999 | Limited Time Offer! 🎉
+        </div>
+    </div>
+
+    <script>
+        // Add click functionality to buttons
+        document.querySelectorAll('.add-to-cart').forEach(button => {
+            button.addEventListener('click', function() {
+                const card = this.closest('.card');
+                const title = card.querySelector('.card-title').textContent;
+                const price = card.querySelector('.current-price').textContent;
+                
+                // Add a visual feedback
+                this.style.background = 'linear-gradient(45deg, #27ae60, #2ecc71)';
+                this.textContent = 'Added!';
+                
+                setTimeout(() => {
+                    this.style.background = 'linear-gradient(45deg, #667eea, #764ba2)';
+                    this.textContent = 'Add to Cart';
+                }, 1000);
+                
+                // You can add actual cart functionality here
+                console.log(`Added ${title} - ${price} to cart`);
+            });
+        });
+
+        // Add hover effects to cards
+        document.querySelectorAll('.card').forEach(card => {
+            card.addEventListener('mouseenter', function() {
+                this.style.transform = 'translateY(-15px) scale(1.02)';
+            });
+            
+            card.addEventListener('mouseleave', function() {
+                this.style.transform = 'translateY(0) scale(1)';
+            });
+        });
+    </script>
 </body>
 </html>
